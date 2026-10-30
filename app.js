@@ -1,8 +1,9 @@
 const input = document.getElementById("input");
 const addBtn = document.getElementById("addBtn");
-const div = document.getElementById("natija");
+const div = document.getElementById("result");
 const clearAllBtn = document.getElementById("clearAllBtn");
 const count = document.getElementById("count");
+const changeDisplayMode = document.querySelector("#modeBtn");
 
 let taskCount = 0;
 
@@ -14,16 +15,15 @@ const colors = [
   "#9b59b6",
   "#e84393",
 ];
-
 function changeCountColor() {
   const randomColor = colors[Math.floor(Math.random() * colors.length)];
   count.style.color = randomColor;
 }
 
-function addTask() {
+function wholeSettings() {
   const inputValue = input.value;
   if (inputValue.trim() === "") {
-    input.style.border = "1px solid red";
+    input.style.border = "2px solid red";
     return;
   }
   input.style.border = "";
@@ -34,7 +34,7 @@ function addTask() {
   p.textContent = inputValue;
   const deleteBtn = document.createElement("button");
   deleteBtn.textContent = "Clear";
-  deleteBtn.style.borderRadius = "6px";
+  deleteBtn.style.borderRadius = "5px";
   deleteBtn.addEventListener("click", () => {
     p.remove();
     taskCount--;
@@ -47,7 +47,7 @@ function addTask() {
 }
 
 addBtn.addEventListener("click", () => {
-  addTask();
+  wholeSettings();
 });
 
 clearAllBtn.addEventListener("click", () => {
@@ -67,6 +67,17 @@ clearAllBtn.addEventListener("click", () => {
 });
 input.addEventListener("keydown", (event) => {
   if (event.key === "Enter") {
-    addTask();
+    wholeSettings();
+  }
+});
+
+changeDisplayMode.addEventListener("click", () => {
+  document.body.classList.toggle("dark-mode");
+
+  if (document.body.classList.contains("dark-mode")) {
+    changeDisplayMode.textContent = "☀️ Light mode";
+    document.body.classList.remove("light-mode");
+  } else {
+    document.body.classList.add("light-mode");
   }
 });
