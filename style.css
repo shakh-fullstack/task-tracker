@@ -45,26 +45,38 @@ body {
   border: 2px solid #e4e6eb;
   cursor: pointer;
 }
+.title {
+  font-size: 28px;
+}
 #result {
-  border: 3px solid rgba(0, 0, 0, 0.1);
+  border: 7px solid rgba(112, 98, 23, 0.876);
   border-radius: 13px;
   padding: 20px;
 }
 body.dark-mode {
-  background-color: #333;
+  background-color: black;
   color: white;
   border: 2px solid #555;
-  transition: 0.3s;
+  transition: 0.4s;
 }
 body.light-mode {
   background-color: white;
   color: black;
-  transition: 0.3s;
+  transition: 0.5s;
 }
 #modeBtn {
-  border-radius: 10px;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  margin-left: 0;
+  border-radius: 50%;
   cursor: pointer;
   color: #33cc33;
-  margin-left: 100px;
   border: 1px dashed;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
 }
